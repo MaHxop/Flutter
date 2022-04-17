@@ -78,37 +78,37 @@ class FilmData extends Film with StringToLanguage {
             id: 1,
             title: 'Крепкий орешек',
             voteAverage: 5.3,
-            releaseDate: '1988 year',
+            releaseDate: '1988 год',
             language: 'Японский'),
         FilmData(
             id: 2,
             title: 'Терминатор',
             voteAverage: 7.7,
-            releaseDate: '1984 year',
+            releaseDate: '1984 год',
             language: 'Английский'),
         FilmData(
             id: 3,
             title: 'Поврот не туда',
             voteAverage: 2.5,
-            releaseDate: '2003 year',
+            releaseDate: '2003 год',
             language: 'Русский'),
         FilmData(
             id: 4,
             title: 'Человек-Паук',
             voteAverage: 4.5,
-            releaseDate: '2002 year',
+            releaseDate: '2002 год',
             language: 'Китайский'),
         FilmData(
             id: 5,
             title: 'Олдбой',
             voteAverage: 9.1,
-            releaseDate: '2003 year',
+            releaseDate: '2003 год',
             language: 'Корейский'),
         FilmData(
             id: 6,
             title: 'Достучаться до небес',
             voteAverage: 8.0,
-            releaseDate: '1997 year',
+            releaseDate: '1997 год',
             language: 'Французский'),
       ];
 }
