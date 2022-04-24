@@ -51,10 +51,12 @@ class HomePage extends StatelessWidget {
         child: Container(
           width: double.infinity,
           color: Colors.white38,
-          child: Column(
-            children: [
-              FilmColumn(filmList: filmList),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                FilmColumn(filmList: filmList),
+              ],
+            ),
           ),
         ),
       ),
@@ -89,14 +91,14 @@ class FilmCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
-        const SizedBox(
-          height: 30,
-        ),
-        Image(data.image),
-        Text(data.name),
-        Text(data.language),
-      ],
+        children: [
+          const SizedBox(
+            height: 30,
+          ),
+          data.image,
+          Text(data.name),
+          Text(data.language),
+        ],
     );
   }
 }
