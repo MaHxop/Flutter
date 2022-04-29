@@ -1,5 +1,3 @@
-import 'package:dz1/film.dart';
-import 'package:dz1/widget.dart';
 import 'package:dz1/test.dart';
 import 'package:flutter/material.dart';
 
@@ -7,5 +5,5 @@ import 'package:flutter/material.dart';
 // ratingFilm(filmList);
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }

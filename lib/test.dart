@@ -6,7 +6,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: HomePage(),
     );
   }
@@ -19,15 +19,13 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Container(
-          child: SingleChildScrollView(
-            child: Column(
-              children: [
-                ListFilmToWidget(
-                  filmWidgetList: filmList,
-                ),
-              ],
-            ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              ListFilmToWidget(
+                filmWidgetList: filmList,
+              ),
+            ],
           ),
         ),
       ),
@@ -57,7 +55,7 @@ List<Film> filmList = [
     img: Image.network(
         'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
     name: 'Терминатор',
-    year: '1998',
+    year: '1987',
   ),
 ];
 
