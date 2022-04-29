@@ -91,14 +91,14 @@
 //   @override
 //   Widget build(BuildContext context) {
 //     return Column(
-//         children: [
-//           const SizedBox(
-//             height: 30,
-//           ),
-//           data.image,
-//           Text(data.name),
-//           Text(data.language),
-//         ],
+//       children: [
+//         const SizedBox(
+//           height: 30,
+//         ),
+//         data.image,
+//         Text(data.name),
+//         Text(data.language),
+//       ],
 //     );
 //   }
 // }
