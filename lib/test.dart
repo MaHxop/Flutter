@@ -33,16 +33,32 @@ class HomePage extends StatelessWidget {
   }
 }
 
-class Film {
+abstract class FilmPoster {
   final Image img;
   final String name;
   final String year;
+
+  FilmPoster({
+    required this.img,
+    required this.name,
+    required this.year,
+  });
+}
+
+class Film extends FilmPoster {
+  Image img;
+  String name;
+  String year;
 
   Film({
     required this.img,
     required this.name,
     required this.year,
-  });
+  }) : super(
+          img: img,
+          name: name,
+          year: year,
+        );
 }
 
 List<Film> filmList = [
