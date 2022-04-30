@@ -41,31 +41,33 @@ abstract class FilmPoster {
   final Image img;
   final String name;
   final String year;
+  LanguageEnum language;
 
   FilmPoster({
     required this.img,
     required this.name,
     required this.year,
+    required this.language,
   });
 }
 
 /// Класс фильмов, наследуется от абстрактного, миксин на выбор языков
 
-class Film extends FilmPoster with LanguageToFilm {
+class Film extends FilmPoster {
   Image img;
   String name;
   String year;
-  LanguageEnum? language;
 
   Film({
+    language,
     required this.img,
     required this.name,
     required this.year,
-    this.language,
   }) : super(
           img: img,
           name: name,
           year: year,
+          language: language,
         );
 }
 
@@ -73,34 +75,31 @@ class Film extends FilmPoster with LanguageToFilm {
 
 enum LanguageEnum {
   russian,
-  english,
   korean,
 }
 
 /// Миксин для выбора языка
 
-mixin LanguageToFilm {
-  LanguageEnum? SelectLanguage(String language) {
-    switch (language) {
-      case 'Русский':
-        return LanguageEnum.russian;
-      case 'Корейский':
-        return LanguageEnum.korean;
-    }
-  }
-}
+// mixin LanguageToFilm {
+//   LanguageEnum? SelectLanguage(String language) {
+//     switch (language) {
+//       case 'Русский':
+//         return LanguageEnum.russian;
+//       case 'Корейский':
+//         return LanguageEnum.korean;
+//     }
+//   }
+// }
 
 /// Список в котором записаны экземпляры класса фильмов
 
 List<Film> filmList = [
   Film(
-    // LanguageEnum.russian,
     img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
     name: 'Крепкий орешек',
     year: '1998',
   ),
   Film(
-    // SelectLanguage(),
     img: Image.network(
         'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
     name: 'Терминатор',
