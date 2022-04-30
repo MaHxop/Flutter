@@ -1,13 +1,23 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'page_two.dart';
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomePage(),
+    return MaterialApp(
+      theme: ThemeData(
+          appBarTheme: const AppBarTheme(
+        backgroundColor: Color.fromARGB(50, 150, 10, 1000),
+      )),
+      routes: {
+        '/HomePage': (context) => const HomePage(),
+        '/PageTwo': (context) => const PageTwo(),
+      },
+      initialRoute: '/HomePage',
     );
   }
 }
@@ -21,7 +31,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(50, 150, 10, 1000),
         title: const Center(
           child: Text('Главная страница'),
         ),
@@ -47,7 +56,7 @@ abstract class FilmPoster {
   final Image img;
   final String name;
   final String year;
-  LanguageEnum language;
+  LanguageEnum? language;
 
   FilmPoster({
     required this.img,
@@ -127,6 +136,10 @@ class FilmWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void pressButton() {
+      Navigator.of(context).pushNamed('/PageTwo');
+    }
+
     return Column(
       children: [
         inform.img,
@@ -143,7 +156,7 @@ class FilmWidget extends StatelessWidget {
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
                 ),
-                onPressed: () {},
+                onPressed: pressButton,
                 child: const Text('Подробности'),
               )
             ],
