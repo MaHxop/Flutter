@@ -12,6 +12,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+/// Домашняя страница на которой отрисовывается список фильмов в виде виджетов
+
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -33,6 +35,8 @@ class HomePage extends StatelessWidget {
   }
 }
 
+/// Абстрактный класс фильмов
+
 abstract class FilmPoster {
   final Image img;
   final String name;
@@ -45,15 +49,19 @@ abstract class FilmPoster {
   });
 }
 
-class Film extends FilmPoster {
+/// Класс фильмов, наследуется от абстрактного, миксин на выбор языков
+
+class Film extends FilmPoster with LanguageToFilm {
   Image img;
   String name;
   String year;
+  LanguageEnum? language;
 
   Film({
     required this.img,
     required this.name,
     required this.year,
+    this.language,
   }) : super(
           img: img,
           name: name,
@@ -61,19 +69,46 @@ class Film extends FilmPoster {
         );
 }
 
+/// Перечисление возможных языков
+
+enum LanguageEnum {
+  russian,
+  english,
+  korean,
+}
+
+/// Миксин для выбора языка
+
+mixin LanguageToFilm {
+  LanguageEnum? SelectLanguage(String language) {
+    switch (language) {
+      case 'Русский':
+        return LanguageEnum.russian;
+      case 'Корейский':
+        return LanguageEnum.korean;
+    }
+  }
+}
+
+/// Список в котором записаны экземпляры класса фильмов
+
 List<Film> filmList = [
   Film(
+    // LanguageEnum.russian,
     img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
     name: 'Крепкий орешек',
     year: '1998',
   ),
   Film(
+    // SelectLanguage(),
     img: Image.network(
         'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
     name: 'Терминатор',
     year: '1987',
   ),
 ];
+
+/// Виджет который принимает экземпляр фильма и отрисовывает его на экране
 
 class FilmWidget extends StatelessWidget {
   final Film inform;
@@ -96,6 +131,8 @@ class FilmWidget extends StatelessWidget {
     );
   }
 }
+
+/// Вдижет который преобразует список фильмов в список виджетов
 
 class ListFilmToWidget extends StatelessWidget {
   List<Film> filmWidgetList;
