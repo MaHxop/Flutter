@@ -20,6 +20,12 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: const Color.fromARGB(50, 150, 10, 1000),
+        title: const Center(
+          child: Text('Главная страница'),
+        ),
+      ),
       body: Center(
         child: SingleChildScrollView(
           child: Column(
@@ -124,8 +130,25 @@ class FilmWidget extends StatelessWidget {
     return Column(
       children: [
         inform.img,
-        Text(inform.name),
-        Text(inform.year),
+        Container(
+          color: const Color.fromARGB(50, 250, 50, 1000),
+          height: 30,
+          padding: const EdgeInsets.symmetric(horizontal: 5),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(inform.name),
+              Text(inform.year),
+              TextButton(
+                style: ButtonStyle(
+                  foregroundColor: MaterialStateProperty.all(Colors.purple),
+                ),
+                onPressed: () {},
+                child: const Text('Подробности'),
+              )
+            ],
+          ),
+        ),
       ],
     );
   }
