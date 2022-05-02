@@ -3,25 +3,6 @@ import 'package:flutter/material.dart';
 
 import 'page_two.dart';
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(
-          appBarTheme: const AppBarTheme(
-        backgroundColor: Color.fromARGB(50, 150, 10, 1000),
-      )),
-      routes: {
-        '/HomePage': (context) => const HomePage(),
-        '/PageTwo': (context) => const PageTwo(),
-      },
-      initialRoute: '/HomePage',
-    );
-  }
-}
-
 /// Домашняя страница на которой отрисовывается список фильмов в виде виджетов
 
 class HomePage extends StatelessWidget {
@@ -35,15 +16,30 @@ class HomePage extends StatelessWidget {
           child: Text('Главная страница'),
         ),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              ListFilmToWidget(
-                filmWidgetList: filmList,
-              ),
-            ],
-          ),
+      body: const FilmColumn(),
+    );
+  }
+}
+
+class FilmColumn extends StatefulWidget {
+  const FilmColumn({Key? key}) : super(key: key);
+
+  @override
+  State<FilmColumn> createState() => _FilmColumnState();
+}
+
+class _FilmColumnState extends State<FilmColumn> {
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            TextField(),
+            ListFilmToWidget(
+              filmWidgetList: filmList,
+            ),
+          ],
         ),
       ),
     );
@@ -56,13 +52,11 @@ abstract class FilmPoster {
   final Image img;
   final String name;
   final String year;
-  LanguageEnum? language;
 
   FilmPoster({
     required this.img,
     required this.name,
     required this.year,
-    required this.language,
   });
 }
 
@@ -72,17 +66,18 @@ class Film extends FilmPoster {
   Image img;
   String name;
   String year;
+  LanguageEnum lang;
 
   Film({
     language,
     required this.img,
     required this.name,
     required this.year,
+    required this.lang,
   }) : super(
           img: img,
           name: name,
           year: year,
-          language: language,
         );
 }
 
@@ -95,16 +90,16 @@ enum LanguageEnum {
 
 /// Миксин для выбора языка
 
-// mixin LanguageToFilm {
-//   LanguageEnum? SelectLanguage(String language) {
-//     switch (language) {
-//       case 'Русский':
-//         return LanguageEnum.russian;
-//       case 'Корейский':
-//         return LanguageEnum.korean;
-//     }
-//   }
-// }
+extension LanguageToFilm on LanguageEnum {
+  String toPrettyString() {
+    switch (this) {
+      case LanguageEnum.russian:
+        return 'Русский';
+      case LanguageEnum.korean:
+        return 'Корейский';
+    }
+  }
+}
 
 /// Список в котором записаны экземпляры класса фильмов
 
@@ -113,12 +108,14 @@ List<Film> filmList = [
     img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
     name: 'Крепкий орешек',
     year: '1998',
+    lang: LanguageEnum.korean,
   ),
   Film(
     img: Image.network(
         'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
     name: 'Терминатор',
     year: '1987',
+    lang: LanguageEnum.russian,
   ),
 ];
 
@@ -136,10 +133,6 @@ class FilmWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    void pressButton() {
-      Navigator.of(context).pushNamed('/PageTwo');
-    }
-
     return Column(
       children: [
         inform.img,
@@ -152,13 +145,16 @@ class FilmWidget extends StatelessWidget {
             children: [
               Text(inform.name),
               Text(inform.year),
+              Text(inform.lang.toPrettyString()),
               TextButton(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
                 ),
-                onPressed: pressButton,
+                onPressed: () {
+                  Navigator.of(context).pushNamed('/PageTwo');
+                },
                 child: const Text('Подробности'),
-              )
+              ),
             ],
           ),
         ),
