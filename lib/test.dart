@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'page_two.dart';
-
 /// Домашняя страница на которой отрисовывается список фильмов в виде виджетов
 
 class HomePage extends StatelessWidget {
@@ -29,6 +27,28 @@ class FilmColumn extends StatefulWidget {
 }
 
 class _FilmColumnState extends State<FilmColumn> {
+  List<Film>? filmList;
+
+  @override
+  void initState() {
+    filmList = [
+      Film(
+        img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
+        name: 'Крепкий орешек',
+        year: '1998',
+        lang: LanguageEnum.korean,
+      ),
+      Film(
+        img: Image.network(
+            'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
+        name: 'Терминатор',
+        year: '1987',
+        lang: LanguageEnum.russian,
+      ),
+    ];
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -36,8 +56,12 @@ class _FilmColumnState extends State<FilmColumn> {
         child: Column(
           children: [
             TextField(),
-            ListFilmToWidget(
-              filmWidgetList: filmList,
+            Column(
+              children: filmList!
+                  .map((listFilmToWidgetFilm) => FilmWidget(
+                        inform: listFilmToWidgetFilm,
+                      ))
+                  .toList(),
             ),
           ],
         ),
@@ -101,24 +125,6 @@ extension LanguageToFilm on LanguageEnum {
   }
 }
 
-/// Список в котором записаны экземпляры класса фильмов
-
-List<Film> filmList = [
-  Film(
-    img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
-    name: 'Крепкий орешек',
-    year: '1998',
-    lang: LanguageEnum.korean,
-  ),
-  Film(
-    img: Image.network(
-        'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
-    name: 'Терминатор',
-    year: '1987',
-    lang: LanguageEnum.russian,
-  ),
-];
-
 /// Виджет который принимает экземпляр фильма и отрисовывает его на экране
 
 class FilmWidget extends StatelessWidget {
@@ -159,30 +165,6 @@ class FilmWidget extends StatelessWidget {
           ),
         ),
       ],
-    );
-  }
-}
-
-/// Вдижет который преобразует список фильмов в список виджетов
-
-class ListFilmToWidget extends StatelessWidget {
-  List<Film> filmWidgetList;
-
-  ListFilmToWidget({
-    Key? key,
-    required this.filmWidgetList,
-  }) : super(
-          key: key,
-        );
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: filmWidgetList
-          .map((listFilmToWidgetFilm) => FilmWidget(
-                inform: listFilmToWidgetFilm,
-              ))
-          .toList(),
     );
   }
 }
