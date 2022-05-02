@@ -28,6 +28,7 @@ class FilmColumn extends StatefulWidget {
 
 class _FilmColumnState extends State<FilmColumn> {
   List<Film>? filmList;
+  final control = TextEditingController();
 
   @override
   void initState() {
@@ -55,7 +56,9 @@ class _FilmColumnState extends State<FilmColumn> {
       child: SingleChildScrollView(
         child: Column(
           children: [
-            TextField(),
+            TextField(
+              controller: control,
+            ),
             Column(
               children: filmList!
                   .map((listFilmToWidgetFilm) => FilmWidget(
