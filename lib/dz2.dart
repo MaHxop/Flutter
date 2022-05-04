@@ -1,6 +1,3 @@
-import 'dart:ui';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// Домашняя страница на которой отрисовывается список фильмов в виде виджетов
@@ -112,14 +109,10 @@ class Film extends FilmPoster {
         );
 }
 
-/// Перечисление возможных языков
-
 enum LanguageEnum {
   russian,
   korean,
 }
-
-/// Миксин для выбора языка
 
 extension LanguageToFilm on LanguageEnum {
   String toPrettyString() {
@@ -159,15 +152,6 @@ class FilmWidget extends StatelessWidget {
               Text(inform.name),
               Text(inform.year),
               Text(inform.lang.toPrettyString()),
-              TextButton(
-                style: ButtonStyle(
-                  foregroundColor: MaterialStateProperty.all(Colors.purple),
-                ),
-                onPressed: () {
-                  Navigator.of(context).pushNamed('/PageTwo');
-                },
-                child: const Text('Подробности'),
-              ),
             ],
           ),
         ),
