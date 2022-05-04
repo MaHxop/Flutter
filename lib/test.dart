@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -28,7 +30,6 @@ class FilmColumn extends StatefulWidget {
 
 class _FilmColumnState extends State<FilmColumn> {
   List<Film>? filmList;
-  final control = TextEditingController();
 
   @override
   void initState() {
@@ -54,19 +55,22 @@ class _FilmColumnState extends State<FilmColumn> {
   Widget build(BuildContext context) {
     return Center(
       child: SingleChildScrollView(
-        child: Column(
-          children: [
-            TextField(
-              controller: control,
-            ),
-            Column(
-              children: filmList!
-                  .map((listFilmToWidgetFilm) => FilmWidget(
-                        inform: listFilmToWidgetFilm,
-                      ))
-                  .toList(),
-            ),
-          ],
+        child: Container(
+          color: const Color.fromARGB(50, 250, 50, 1000),
+          child: Column(
+            children: [
+              const SizedBox(height: 10),
+              Filter(),
+              const SizedBox(height: 5),
+              Column(
+                children: filmList!
+                    .map((listFilmToWidgetFilm) => FilmWidget(
+                          inform: listFilmToWidgetFilm,
+                        ))
+                    .toList(),
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -167,7 +171,27 @@ class FilmWidget extends StatelessWidget {
             ],
           ),
         ),
+        const SizedBox(height: 5),
       ],
+    );
+  }
+}
+
+class Filter extends StatelessWidget {
+  final control = TextEditingController();
+
+  Filter({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return TextField(
+      decoration: const InputDecoration(
+        labelText: 'Поиск',
+        border: OutlineInputBorder(),
+        filled: true,
+        fillColor: Color.fromARGB(50, 250, 80, 1000),
+      ),
+      controller: control,
     );
   }
 }
