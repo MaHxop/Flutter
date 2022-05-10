@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
-import 'test.dart';
 
-/// Вторая страница
-
-class PageTwo extends StatefulWidget {
-  const PageTwo({Key? key}) : super(key: key);
+class PageFilmInformation extends StatefulWidget {
+  const PageFilmInformation({Key? key}) : super(key: key);
 
   @override
-  State<PageTwo> createState() => _PageTwoState();
+  State<PageFilmInformation> createState() => _PageFilmInformationState();
 }
 
-/// Отображение информации о фильме
-
-class _PageTwoState extends State<PageTwo> {
+class _PageFilmInformationState extends State<PageFilmInformation> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

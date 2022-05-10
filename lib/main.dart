@@ -1,7 +1,6 @@
-import 'package:dz1/test.dart';
+import 'package:dz1/page/home_page.dart';
+import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
-
-import 'page_two.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +18,8 @@ class MyApp extends StatelessWidget {
       )),
       routes: {
         '/HomePage': (context) => const HomePage(),
-        '/HomePage/PageTwo': (context) => const PageTwo(),
+        '/HomePage/PageFilmInformation': (context) =>
+            const PageFilmInformation(),
       },
       initialRoute: '/HomePage',
     );
