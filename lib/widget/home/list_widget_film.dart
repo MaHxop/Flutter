@@ -19,14 +19,42 @@ class _FilmColumnState extends State<FilmColumn> {
       FilmPoster(
         img: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
         name: 'Крепкий орешек',
-        year: '1998',
+        year: '1991',
         lang: LanguageEnum.korean,
       ),
       FilmPoster(
         img: Image.network(
             'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
         name: 'Терминатор',
-        year: '1987',
+        year: '1992',
+        lang: LanguageEnum.russian,
+      ),
+      FilmPoster(
+        img: Image.network(
+            'https://kinocomment.ru/media/foto/2015/02/19/1011595766.jpg'),
+        name: 'Достучаться до небес',
+        year: '1993',
+        lang: LanguageEnum.korean,
+      ),
+      FilmPoster(
+        img: Image.network(
+            'https://artfiles.alphacoders.com/987/thumb-1920-98733.jpg'),
+        name: 'Гарри Поттер',
+        year: '1994',
+        lang: LanguageEnum.russian,
+      ),
+      FilmPoster(
+        img: Image.network(
+            'https://www.film.ru/sites/default/files/movies/posters/1616021-1581739.jpeg'),
+        name: 'Чужой',
+        year: '1995',
+        lang: LanguageEnum.korean,
+      ),
+      FilmPoster(
+        img: Image.network(
+            'https://images.kinorium.com/movie/poster/77072/w1500_3573799.jpg'),
+        name: 'Бегущий по лезвию',
+        year: '1996',
         lang: LanguageEnum.russian,
       ),
     ];
