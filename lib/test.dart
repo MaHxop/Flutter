@@ -164,7 +164,7 @@ class FilmWidget extends StatelessWidget {
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
                 ),
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/PageTwo');
+                  Navigator.of(context).pushNamed('/HomePage/PageTwo');
                 },
                 child: const Text('Подробности'),
               ),
