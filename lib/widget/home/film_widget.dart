@@ -27,7 +27,7 @@ class _FilmWidgetState extends State<FilmWidget> {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        widget.inform.img,
+        widget.inform.picture,
         Container(
           color: Colors.white,
           height: 30,
@@ -35,8 +35,8 @@ class _FilmWidgetState extends State<FilmWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(widget.inform.name),
-              Text(widget.inform.year),
+              Text(widget.inform.title),
+              Text(widget.inform.releaseDate),
               Text(widget.inform.lang.toPrettyString()),
               TextButton(
                 style: ButtonStyle(

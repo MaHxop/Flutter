@@ -1,14 +1,20 @@
 import 'package:flutter/material.dart';
 
 abstract class Film {
-  final Image img;
-  final String name;
-  final String year;
+  final int id;
+  final String title;
+  final Image picture;
+  final double voteAverage;
+  final String releaseDate;
+  final String description;
 
   Film({
-    required this.img,
-    required this.name,
-    required this.year,
+    required this.id,
+    required this.title,
+    required this.picture,
+    required this.voteAverage,
+    required this.releaseDate,
+    required this.description,
   });
 }
 
@@ -16,15 +22,20 @@ class FilmPoster extends Film {
   LanguageEnum lang;
 
   FilmPoster({
-    language,
-    required Image img,
-    required String name,
-    required String year,
+    required int id,
+    required String title,
+    required Image picture,
+    required double voteAverage,
+    required String releaseDate,
+    required String description,
     required this.lang,
   }) : super(
-          img: img,
-          name: name,
-          year: year,
+          id: id,
+          title: title,
+          picture: picture,
+          voteAverage: voteAverage,
+          releaseDate: releaseDate,
+          description: description,
         );
 }
 
