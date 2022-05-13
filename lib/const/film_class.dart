@@ -13,16 +13,13 @@ abstract class Film {
 }
 
 class FilmPoster extends Film {
-  Image img;
-  String name;
-  String year;
   LanguageEnum lang;
 
   FilmPoster({
     language,
-    required this.img,
-    required this.name,
-    required this.year,
+    required Image img,
+    required String name,
+    required String year,
     required this.lang,
   }) : super(
           img: img,

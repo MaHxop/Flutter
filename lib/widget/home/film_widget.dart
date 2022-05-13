@@ -1,8 +1,10 @@
 import 'package:dz1/const/film_class.dart';
+import 'package:dz1/page/page_information_film.dart';
 import 'package:dz1/widget/home/list_widget_film.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class FilmWidget extends StatelessWidget {
+class FilmWidget extends StatefulWidget {
   final FilmPoster inform;
 
   const FilmWidget({
@@ -12,23 +14,30 @@ class FilmWidget extends StatelessWidget {
           key: key,
         );
 
+  @override
+  State<FilmWidget> createState() => _FilmWidgetState();
+}
+
+class _FilmWidgetState extends State<FilmWidget> {
   get filmList => FilmColumnState;
+  bool heart = false;
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
+      alignment: Alignment.bottomCenter,
       children: [
-        inform.img,
+        widget.inform.img,
         Container(
-          color: const Color.fromARGB(50, 250, 50, 1000),
+          color: Colors.white,
           height: 30,
           padding: const EdgeInsets.symmetric(horizontal: 5),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(inform.name),
-              Text(inform.year),
-              Text(inform.lang.toPrettyString()),
+              Text(widget.inform.name),
+              Text(widget.inform.year),
+              Text(widget.inform.lang.toPrettyString()),
               TextButton(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
@@ -37,6 +46,7 @@ class FilmWidget extends StatelessWidget {
                   Navigator.pushNamed(
                     context,
                     '/HomePage/PageFilmInformation',
+                    arguments: PageArgument(widget.inform),
                   );
                 },
                 child: const Text('Подробности'),
@@ -44,7 +54,20 @@ class FilmWidget extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 5),
+        Positioned(
+          top: 7,
+          right: 7,
+          child: GestureDetector(
+            onTap: () {
+              heart = !heart;
+              setState(() {});
+            },
+            child: Icon(
+              Icons.heart_broken,
+              color: !heart ? Colors.grey : Colors.red,
+            ),
+          ),
+        ),
       ],
     );
   }
