@@ -7,10 +7,10 @@ class FilmColumn extends StatefulWidget {
   const FilmColumn({Key? key}) : super(key: key);
 
   @override
-  State<FilmColumn> createState() => _FilmColumnState();
+  State<FilmColumn> createState() => FilmColumnState();
 }
 
-class _FilmColumnState extends State<FilmColumn> {
+class FilmColumnState extends State<FilmColumn> {
   List<FilmPoster>? filmList;
 
   @override

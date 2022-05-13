@@ -1,4 +1,5 @@
 import 'package:dz1/const/film_class.dart';
+import 'package:dz1/widget/home/list_widget_film.dart';
 import 'package:flutter/material.dart';
 
 class FilmWidget extends StatelessWidget {
@@ -10,6 +11,8 @@ class FilmWidget extends StatelessWidget {
   }) : super(
           key: key,
         );
+
+  get filmList => FilmColumnState;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +34,10 @@ class FilmWidget extends StatelessWidget {
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
                 ),
                 onPressed: () {
-                  Navigator.of(context)
-                      .pushNamed('/HomePage/PageFilmInformation');
+                  Navigator.pushNamed(
+                    context,
+                    '/HomePage/PageFilmInformation',
+                  );
                 },
                 child: const Text('Подробности'),
               ),
