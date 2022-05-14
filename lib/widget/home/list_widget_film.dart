@@ -112,11 +112,10 @@ class FilmColumnState extends State<FilmColumn> {
             child: Container(
               color: const Color.fromARGB(50, 250, 50, 1000),
               child: Column(
-                children: filterFilm
-                    .map((listFilmToWidgetFilm) => FilmWidget(
-                          film: listFilmToWidgetFilm,
-                        ))
-                    .toList(),
+                children: List.generate(
+                  filterFilm.length,
+                  (int index) => FilmWidget.model(model: filterFilm[index]),
+                ),
               ),
             ),
           ),

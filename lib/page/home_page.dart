@@ -1,18 +1,49 @@
+import 'package:dz1/widget/home/list_view_builder.dart';
 import 'package:dz1/widget/home/list_widget_film.dart';
 import 'package:flutter/material.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  int _tab = 1;
+  static const List<Widget> _page = <Widget>[
+    ListViewBuilder(),
+    FilmColumn(),
+    GridViewBuilder(),
+  ];
+
+  void _onTab(int index) {
+    if (_tab == index) return;
+    setState(() {
+      _tab = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: Text('Главная страница'),
-        ),
+        title: Text('Главная страница'),
       ),
-      body: const FilmColumn(),
+      body: Center(
+        child: _page[_tab],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: _tab,
+        items: const [
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_to_queue), label: 'ListView'),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.add_to_queue), label: 'GridView'),
+        ],
+        onTap: _onTab,
+      ),
     );
   }
 }

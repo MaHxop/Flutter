@@ -3,14 +3,35 @@ import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
 
 class FilmWidget extends StatefulWidget {
-  final FilmPoster film;
+  final String title;
+  final Image picture;
+  final double voteAverage;
+  final String description;
+  final FilmPoster link;
 
   const FilmWidget({
     Key? key,
-    required this.film,
+    required this.title,
+    required this.picture,
+    required this.voteAverage,
+    required this.description,
+    required this.link,
   }) : super(
           key: key,
         );
+
+  factory FilmWidget.model({
+    required FilmPoster model,
+    Key? key,
+  }) {
+    return FilmWidget(
+      title: model.title,
+      picture: model.picture,
+      voteAverage: model.voteAverage,
+      description: model.description,
+      link: model,
+    );
+  }
 
   @override
   State<FilmWidget> createState() => _FilmWidgetState();
@@ -33,7 +54,7 @@ class _FilmWidgetState extends State<FilmWidget> {
               Navigator.pushNamed(
                 context,
                 '/HomePage/PageFilmInformation',
-                arguments: PageArgument(widget.film),
+                arguments: PageArgument(widget.link),
               );
             },
             child: Container(
@@ -55,7 +76,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: widget.film.picture,
+                    child: widget.picture,
                   ),
                   Expanded(
                     flex: 2,
@@ -67,7 +88,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                         children: [
                           const SizedBox(height: 5),
                           Text(
-                            widget.film.title,
+                            widget.title,
                             maxLines: 1,
                             style: const TextStyle(
                               fontSize: 18,
@@ -76,17 +97,25 @@ class _FilmWidgetState extends State<FilmWidget> {
                             ),
                           ),
                           const SizedBox(height: 10),
-                          Text(
-                            widget.film.releaseDate,
-                            maxLines: 1,
-                            style: const TextStyle(
-                              fontSize: 16,
-                              color: Colors.white60,
-                            ),
+                          Row(
+                            children: [
+                              const Icon(
+                                Icons.star,
+                                color: Colors.amber,
+                              ),
+                              Text(
+                                widget.voteAverage.toString(),
+                                maxLines: 1,
+                                style: const TextStyle(
+                                  fontSize: 16,
+                                  color: Colors.white60,
+                                ),
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            widget.film.description,
+                            widget.description,
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
