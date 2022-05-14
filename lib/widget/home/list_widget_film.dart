@@ -109,19 +109,15 @@ class FilmColumnState extends State<FilmColumn> {
         Center(
           child: SingleChildScrollView(
             keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
-            padding: EdgeInsets.only(top: 60),
+            padding: const EdgeInsets.only(top: 60),
             child: Container(
               color: const Color.fromARGB(50, 250, 50, 1000),
               child: Column(
-                children: [
-                  Column(
-                    children: filterFilm
-                        .map((listFilmToWidgetFilm) => FilmWidget(
-                              film: listFilmToWidgetFilm,
-                            ))
-                        .toList(),
-                  ),
-                ],
+                children: filterFilm
+                    .map((listFilmToWidgetFilm) => FilmWidget(
+                          film: listFilmToWidgetFilm,
+                        ))
+                    .toList(),
               ),
             ),
           ),
