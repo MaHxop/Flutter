@@ -1,6 +1,5 @@
 import 'package:dz1/const/film_class.dart';
 import 'package:dz1/widget/home/film_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FilmColumn extends StatefulWidget {

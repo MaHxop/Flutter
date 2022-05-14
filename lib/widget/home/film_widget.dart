@@ -1,6 +1,5 @@
 import 'package:dz1/const/film_class.dart';
 import 'package:dz1/page/page_information_film.dart';
-import 'package:dz1/widget/home/list_widget_film.dart';
 import 'package:flutter/material.dart';
 
 class FilmWidget extends StatefulWidget {
@@ -18,7 +17,6 @@ class FilmWidget extends StatefulWidget {
 }
 
 class _FilmWidgetState extends State<FilmWidget> {
-  get filmList => FilmColumnState;
   bool heart = false;
 
   @override
@@ -28,31 +26,41 @@ class _FilmWidgetState extends State<FilmWidget> {
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Stack(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: const Color.fromARGB(100, 120, 30, 150),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.2),
-                        blurRadius: 10,
-                        offset: const Offset(3, 3),
-                      ),
-                    ],
-                    borderRadius: const BorderRadius.all(Radius.circular(10)),
-                    border: Border.all(
-                        color: const Color.fromARGB(100, 50, 20, 250)
-                            .withOpacity(0.3))),
-                clipBehavior: Clip.hardEdge,
-                child: Row(
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: widget.film.picture,
+          child: InkWell(
+            highlightColor: Colors.purpleAccent.withOpacity(0.1),
+            borderRadius: const BorderRadius.all(Radius.circular(10)),
+            onTap: () {
+              Navigator.pushNamed(
+                context,
+                '/HomePage/PageFilmInformation',
+                arguments: PageArgument(widget.film),
+              );
+            },
+            child: Container(
+              decoration: BoxDecoration(
+                  color: const Color.fromARGB(100, 120, 30, 150),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.2),
+                      blurRadius: 10,
+                      offset: const Offset(3, 3),
                     ),
-                    Expanded(
-                      flex: 2,
+                  ],
+                  borderRadius: const BorderRadius.all(Radius.circular(10)),
+                  border: Border.all(
+                      color: const Color.fromARGB(100, 50, 20, 250)
+                          .withOpacity(0.3))),
+              clipBehavior: Clip.hardEdge,
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: widget.film.picture,
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Padding(
+                      padding: const EdgeInsets.all(4.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -78,7 +86,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            widget.film.lang.toPrettyString(),
+                            widget.film.description,
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -86,49 +94,27 @@ class _FilmWidgetState extends State<FilmWidget> {
                               color: Colors.white38,
                             ),
                           ),
-                          TextButton(
-                            style: ButtonStyle(
-                              foregroundColor:
-                                  MaterialStateProperty.all(Colors.purple),
-                            ),
-                            onPressed: () {
-                              Navigator.pushNamed(
-                                context,
-                                '/HomePage/PageFilmInformation',
-                                arguments: PageArgument(widget.film),
-                              );
-                            },
-                            child: const Text('Подробности'),
-                          ),
                         ],
                       ),
                     ),
-                    Positioned(
-                      top: 7,
-                      right: 7,
-                      child: GestureDetector(
-                        onTap: () {
-                          heart = !heart;
-                          setState(() {});
-                        },
-                        child: Icon(
-                          !heart ? Icons.heart_broken : Icons.favorite,
-                          color: !heart ? Colors.grey : Colors.red,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              // Material(
-              //   color: Colors.transparent,
-              //   child: InkWell(
-              //     highlightColor: Colors.purpleAccent.withOpacity(0.1),
-              //     borderRadius: const BorderRadius.all(Radius.circular(10)),
-              //     onTap: () {},
-              //   ),
-              // ),
-            ],
+            ),
+          ),
+        ),
+        Positioned(
+          top: 10,
+          right: 10,
+          child: GestureDetector(
+            onTap: () {
+              heart = !heart;
+              setState(() {});
+            },
+            child: Icon(
+              !heart ? Icons.heart_broken : Icons.favorite,
+              color: !heart ? Colors.grey : Colors.red,
+            ),
           ),
         ),
       ],
