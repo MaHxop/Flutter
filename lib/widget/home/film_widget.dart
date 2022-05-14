@@ -3,13 +3,14 @@ import 'package:dz1/page/page_information_film.dart';
 import 'package:dz1/widget/home/list_widget_film.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 class FilmWidget extends StatefulWidget {
-  final FilmPoster inform;
+  final FilmPoster film;
 
   const FilmWidget({
     Key? key,
-    required this.inform,
+    required this.film,
   }) : super(
           key: key,
         );
@@ -27,7 +28,7 @@ class _FilmWidgetState extends State<FilmWidget> {
     return Stack(
       alignment: Alignment.bottomCenter,
       children: [
-        widget.inform.picture,
+        widget.film.picture,
         Container(
           color: Colors.white,
           height: 30,
@@ -35,9 +36,9 @@ class _FilmWidgetState extends State<FilmWidget> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(widget.inform.title),
-              Text(widget.inform.releaseDate),
-              Text(widget.inform.lang.toPrettyString()),
+              Text(widget.film.title),
+              Text(widget.film.releaseDate),
+              Text(widget.film.lang.toPrettyString()),
               TextButton(
                 style: ButtonStyle(
                   foregroundColor: MaterialStateProperty.all(Colors.purple),
@@ -46,7 +47,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                   Navigator.pushNamed(
                     context,
                     '/HomePage/PageFilmInformation',
-                    arguments: PageArgument(widget.inform),
+                    arguments: PageArgument(widget.film),
                   );
                 },
                 child: const Text('Подробности'),
@@ -63,7 +64,7 @@ class _FilmWidgetState extends State<FilmWidget> {
               setState(() {});
             },
             child: Icon(
-              Icons.heart_broken,
+              !heart ? Icons.heart_broken : Icons.favorite,
               color: !heart ? Colors.grey : Colors.red,
             ),
           ),

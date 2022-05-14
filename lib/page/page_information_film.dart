@@ -29,7 +29,7 @@ class _PageFilmInformationState extends State<PageFilmInformation> {
       body: Column(
         children: [
           FilmWidget(
-            inform: widget.arg.data,
+            film: widget.arg.data,
           ),
         ],
       ),

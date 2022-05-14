@@ -1,6 +1,6 @@
 import 'package:dz1/const/film_class.dart';
 import 'package:dz1/widget/home/film_widget.dart';
-import 'package:dz1/widget/home/filter_widget.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FilmColumn extends StatefulWidget {
@@ -12,6 +12,7 @@ class FilmColumn extends StatefulWidget {
 
 class FilmColumnState extends State<FilmColumn> {
   List<FilmPoster>? filmList;
+  var filterFilm = <FilmPoster>[];
 
   @override
   void initState() {
@@ -83,30 +84,59 @@ class FilmColumnState extends State<FilmColumn> {
       ),
     ];
     super.initState();
+    searchFilm();
+    control.addListener(searchFilm);
+  }
+
+  final control = TextEditingController();
+
+  void searchFilm() {
+    final query = control.text;
+    if (query.isNotEmpty) {
+      filterFilm = filmList!.where((FilmPoster filmPoster) {
+        return filmPoster.title.toLowerCase().contains(query.toLowerCase());
+      }).toList();
+    } else {
+      filterFilm = filmList!;
+    }
+    setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: SingleChildScrollView(
-        child: Container(
-          color: const Color.fromARGB(50, 250, 50, 1000),
-          child: Column(
-            children: [
-              const SizedBox(height: 10),
-              Filter(),
-              const SizedBox(height: 5),
-              Column(
-                children: filmList!
-                    .map((listFilmToWidgetFilm) => FilmWidget(
-                          inform: listFilmToWidgetFilm,
-                        ))
-                    .toList(),
+    return Stack(
+      children: [
+        Center(
+          child: SingleChildScrollView(
+            keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+            padding: EdgeInsets.only(top: 60),
+            child: Container(
+              color: const Color.fromARGB(50, 250, 50, 1000),
+              child: Column(
+                children: [
+                  Column(
+                    children: filterFilm
+                        .map((listFilmToWidgetFilm) => FilmWidget(
+                              film: listFilmToWidgetFilm,
+                            ))
+                        .toList(),
+                  ),
+                ],
               ),
-            ],
+            ),
           ),
         ),
-      ),
+        TextField(
+          keyboardType: TextInputType.text,
+          controller: control,
+          decoration: const InputDecoration(
+            labelText: 'Поиск',
+            border: OutlineInputBorder(),
+            filled: true,
+            fillColor: Color.fromARGB(50, 250, 80, 1000),
+          ),
+        ),
+      ],
     );
   }
 }
