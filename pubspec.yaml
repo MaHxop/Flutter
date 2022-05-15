@@ -30,6 +30,20 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_lints: ^1.0.4
+
+    #core
+  equatable: 2.0.3
+  flutter_bloc: ^8.0.1
+
+    #widgets
+  flutter_cache_manager: ^3.3.0
+  flutter_html: ^2.2.1
+
+    #http
+  dio: ^4.0.6
+  pretty_dio_logger: ^1.1.1
+
+  #generators
   json_annotation: 4.4.0
 
 
