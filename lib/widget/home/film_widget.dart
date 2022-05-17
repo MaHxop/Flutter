@@ -1,11 +1,11 @@
 import 'package:dz1/const/film_class.dart';
-import 'package:dz1/models/film_models.dart';
+import 'package:dz1/models/models.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
 
 class FilmWidget extends StatefulWidget {
   final String title;
-  final Image picture;
+  final String picture;
   final double voteAverage;
   final String description;
   final FilmModel link;
@@ -77,7 +77,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: widget.picture,
+                    child: Image.network(widget.picture),
                   ),
                   Expanded(
                     flex: 2,

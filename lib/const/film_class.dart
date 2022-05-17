@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 abstract class Film {
   final int id;
   final String title;
-  final Image picture;
+  final String picture;
   final double voteAverage;
   final String releaseDate;
   final String description;

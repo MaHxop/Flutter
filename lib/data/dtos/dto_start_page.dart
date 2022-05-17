@@ -29,19 +29,19 @@ class CardDataDTO {
   @JsonKey(name: 'votes')
   final CardDataVotesDTO? voteAverage;
 
-  @JsonKey(name: 'year')
-  final String? releaseDate;
+  @JsonKey(name: 'year', defaultValue: '')
+  final String releaseDate;
 
-  @JsonKey(name: 'description')
-  final String? description;
+  @JsonKey(name: 'description', defaultValue: '')
+  final String description;
 
   CardDataDTO({
     required this.id,
     required this.title,
     required this.picture,
-    this.voteAverage,
-    this.releaseDate,
-    this.description,
+    required this.voteAverage,
+    required this.releaseDate,
+    required this.description,
   });
 
   factory CardDataDTO.fromJson(Map<String, dynamic> json) =>
@@ -65,10 +65,10 @@ class CardDataImageDTO {
 @JsonSerializable()
 class CardDataVotesDTO {
   @JsonKey(name: 'kp', defaultValue: 0)
-  final double? kp;
+  final double kp;
 
   CardDataVotesDTO({
-    this.kp,
+    required this.kp,
   });
 
   factory CardDataVotesDTO.fromJson(Map<String, dynamic> json) =>

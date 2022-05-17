@@ -25,8 +25,8 @@ CardDataDTO _$CardDataDTOFromJson(Map<String, dynamic> json) => CardDataDTO(
       voteAverage: json['votes'] == null
           ? null
           : CardDataVotesDTO.fromJson(json['votes'] as Map<String, dynamic>),
-      releaseDate: json['year'] as String?,
-      description: json['description'] as String?,
+      releaseDate: json['year'] as String? ?? '',
+      description: json['description'] as String? ?? '',
     );
 
 Map<String, dynamic> _$CardDataDTOToJson(CardDataDTO instance) =>

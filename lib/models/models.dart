@@ -1,13 +1,19 @@
 import 'package:dz1/const/film_class.dart';
 import 'package:flutter/material.dart';
 
+class HomeModel {
+  final List<FilmModel>? docs;
+
+  HomeModel(this.docs);
+}
+
 class FilmModel extends Film {
   LanguageEnum lang;
 
   FilmModel({
     required int id,
     required String title,
-    required Image picture,
+    required String picture,
     required double voteAverage,
     required String releaseDate,
     required String description,

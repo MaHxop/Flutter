@@ -1,5 +1,5 @@
 import 'package:dz1/const/film_class.dart';
-import 'package:dz1/models/film_models.dart';
+import 'package:dz1/models/models.dart';
 import 'package:dz1/widget/home/film_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -12,7 +12,7 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 1,
         title: 'Крепкий орешек',
-        picture: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
+        picture: 'https://media.b-stock.ru/gallery/2600121.jpeg',
         voteAverage: 8,
         releaseDate: '1991',
         description:
@@ -22,8 +22,8 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 2,
         title: 'Терминатор',
-        picture: Image.network(
-            'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
+        picture:
+            'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg',
         voteAverage: 8.5,
         releaseDate: '1992',
         description:
@@ -33,8 +33,7 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 3,
         title: 'Достучаться до небес',
-        picture: Image.network(
-            'https://kinocomment.ru/media/foto/2015/02/19/1011595766.jpg'),
+        picture: 'https://kinocomment.ru/media/foto/2015/02/19/1011595766.jpg',
         voteAverage: 7.3,
         releaseDate: '1993',
         description:
@@ -44,8 +43,7 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 4,
         title: 'Гарри Поттер',
-        picture: Image.network(
-            'https://artfiles.alphacoders.com/987/thumb-1920-98733.jpg'),
+        picture: 'https://artfiles.alphacoders.com/987/thumb-1920-98733.jpg',
         voteAverage: 6.1,
         releaseDate: '1994',
         description:
@@ -55,8 +53,8 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 5,
         title: 'Чужой',
-        picture: Image.network(
-            'https://www.film.ru/sites/default/files/movies/posters/1616021-1581739.jpeg'),
+        picture:
+            'https://www.film.ru/sites/default/files/movies/posters/1616021-1581739.jpeg',
         voteAverage: 7.8,
         releaseDate: '1995',
         description:
@@ -66,8 +64,8 @@ class ListViewBuilder extends StatelessWidget {
       FilmModel(
         id: 6,
         title: 'Бегущий по лезвию',
-        picture: Image.network(
-            'https://images.kinorium.com/movie/poster/77072/w1500_3573799.jpg'),
+        picture:
+            'https://images.kinorium.com/movie/poster/77072/w1500_3573799.jpg',
         voteAverage: 5.4,
         releaseDate: '1996',
         description:
@@ -96,7 +94,7 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 1,
         title: 'Крепкий орешек',
-        picture: Image.network('https://media.b-stock.ru/gallery/2600121.jpeg'),
+        picture: 'https://media.b-stock.ru/gallery/2600121.jpeg',
         voteAverage: 8,
         releaseDate: '1991',
         description:
@@ -106,8 +104,8 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 2,
         title: 'Терминатор',
-        picture: Image.network(
-            'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg'),
+        picture:
+            'https://i.pinimg.com/originals/26/38/61/263861ee2fb9aa3aef15fe824aa1ebdb.jpg',
         voteAverage: 8.5,
         releaseDate: '1992',
         description:
@@ -117,8 +115,7 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 3,
         title: 'Достучаться до небес',
-        picture: Image.network(
-            'https://kinocomment.ru/media/foto/2015/02/19/1011595766.jpg'),
+        picture: 'https://kinocomment.ru/media/foto/2015/02/19/1011595766.jpg',
         voteAverage: 7.3,
         releaseDate: '1993',
         description:
@@ -128,8 +125,7 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 4,
         title: 'Гарри Поттер',
-        picture: Image.network(
-            'https://artfiles.alphacoders.com/987/thumb-1920-98733.jpg'),
+        picture: 'https://artfiles.alphacoders.com/987/thumb-1920-98733.jpg',
         voteAverage: 6.1,
         releaseDate: '1994',
         description:
@@ -139,8 +135,8 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 5,
         title: 'Чужой',
-        picture: Image.network(
-            'https://www.film.ru/sites/default/files/movies/posters/1616021-1581739.jpeg'),
+        picture:
+            'https://www.film.ru/sites/default/files/movies/posters/1616021-1581739.jpeg',
         voteAverage: 7.8,
         releaseDate: '1995',
         description:
@@ -150,8 +146,8 @@ class GridViewBuilder extends StatelessWidget {
       FilmModel(
         id: 6,
         title: 'Бегущий по лезвию',
-        picture: Image.network(
-            'https://images.kinorium.com/movie/poster/77072/w1500_3573799.jpg'),
+        picture:
+            'https://images.kinorium.com/movie/poster/77072/w1500_3573799.jpg',
         voteAverage: 5.4,
         releaseDate: '1996',
         description:

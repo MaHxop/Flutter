@@ -1,5 +1,5 @@
 import 'package:dz1/const/film_class.dart';
-import 'package:dz1/models/film_models.dart';
+import 'package:dz1/models/models.dart';
 import 'package:flutter/material.dart';
 
 class PageArgument {
@@ -45,7 +45,7 @@ class _PageFilmInformationState extends State<PageFilmInformation> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              widget.arg.data.picture,
+              Image.network(widget.arg.data.picture),
               Padding(
                 padding: const EdgeInsets.all(4.0),
                 child: Column(
