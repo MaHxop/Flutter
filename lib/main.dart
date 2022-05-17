@@ -26,7 +26,6 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const HomeScreen(),
         '/HomePage': (context) => const HomePage(),
-        '/HomePage/ViewBuilder': (context) => const ListViewBuilder(),
         '/HomePage/PageFilmInformation': (context) => PageFilmInformation(
               arg: ModalRoute.of(context)?.settings.arguments as PageArgument,
             ),

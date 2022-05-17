@@ -2,22 +2,6 @@ import 'package:dz1/models/models.dart';
 import 'package:dz1/widget/home/film_card.dart';
 import 'package:flutter/material.dart';
 
-class ListViewBuilder extends StatelessWidget {
-  const ListViewBuilder({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          return FilmCard.model(model: FilmList.filmList[index]);
-        },
-        itemCount: FilmList.filmList.length,
-      ),
-    );
-  }
-}
-
 class GridViewBuilder extends StatelessWidget {
   const GridViewBuilder({Key? key}) : super(key: key);
 
@@ -35,7 +19,7 @@ class GridViewBuilder extends StatelessWidget {
 }
 
 class FilmList {
-  static final List filmList = <FilmModel>[
+  static final List<FilmModel> filmList = [
     FilmModel(
       id: 1,
       title: 'Крепкий орешек',

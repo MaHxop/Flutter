@@ -20,20 +20,8 @@ class FilmRepositories {
         queryParameters: Query.baseQuery,
       );
 
-      // Парсим ДТО
-      final dtos = <CardDataDTO>[];
-      final responseList = response.data as List<dynamic>;
-      for (final data in responseList) {
-        dtos.add(CardDataDTO.fromJson(data as Map<String, dynamic>));
-      }
-
-      // Конвертируем ДТО в модели
-      final filmModels = <FilmModel>[];
-      for (final dto in dtos) {
-        filmModels.add(dto.toDomain());
-      }
-
-      final HomeModel model = HomeModel(docs: filmModels);
+      final dto = (CardDTO.fromJson(response.data as Map<String, dynamic>));
+      final HomeModel model = dto.toDomain();
       return model;
     } on DioError catch (_) {
       return null;

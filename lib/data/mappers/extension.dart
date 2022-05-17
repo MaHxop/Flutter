@@ -16,7 +16,7 @@ extension CardDataDTOToDomain on CardDataDTO {
       title: title,
       picture: picture.previewUrl,
       voteAverage: voteAverage.kp,
-      releaseDate: releaseDate,
+      releaseDate: releaseDate.toString(),
       description: description,
     );
   }

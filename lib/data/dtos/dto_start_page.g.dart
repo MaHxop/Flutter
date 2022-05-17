@@ -18,13 +18,13 @@ Map<String, dynamic> _$CardDTOToJson(CardDTO instance) => <String, dynamic>{
 
 CardDataDTO _$CardDataDTOFromJson(Map<String, dynamic> json) => CardDataDTO(
       id: json['id'] as int? ?? 0,
-      title: json['name'] as String? ?? '',
+      title: json['name'] as String? ?? 'Название отсутствеут',
       picture:
           CardDataImageDTO.fromJson(json['poster'] as Map<String, dynamic>),
       voteAverage:
-          CardDataVotesDTO.fromJson(json['votes'] as Map<String, dynamic>),
-      releaseDate: json['year'] as String? ?? '',
-      description: json['description'] as String? ?? '',
+          CardDataVotesDTO.fromJson(json['rating'] as Map<String, dynamic>),
+      releaseDate: json['year'] as int? ?? 0,
+      description: json['description'] as String? ?? 'Описание отсутствует',
     );
 
 Map<String, dynamic> _$CardDataDTOToJson(CardDataDTO instance) =>
@@ -32,14 +32,14 @@ Map<String, dynamic> _$CardDataDTOToJson(CardDataDTO instance) =>
       'id': instance.id,
       'name': instance.title,
       'poster': instance.picture,
-      'votes': instance.voteAverage,
+      'rating': instance.voteAverage,
       'year': instance.releaseDate,
       'description': instance.description,
     };
 
 CardDataImageDTO _$CardDataImageDTOFromJson(Map<String, dynamic> json) =>
     CardDataImageDTO(
-      previewUrl: json['previewUrl'] as String? ?? '',
+      previewUrl: json['previewUrl'] as String? ?? 'Картинки нет',
     );
 
 Map<String, dynamic> _$CardDataImageDTOToJson(CardDataImageDTO instance) =>

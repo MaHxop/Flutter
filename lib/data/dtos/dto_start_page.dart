@@ -20,19 +20,19 @@ class CardDataDTO {
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
 
-  @JsonKey(name: 'name', defaultValue: '')
+  @JsonKey(name: 'name', defaultValue: 'Название отсутствеут')
   final String title;
 
   @JsonKey(name: 'poster')
   final CardDataImageDTO picture;
 
-  @JsonKey(name: 'votes')
+  @JsonKey(name: 'rating')
   final CardDataVotesDTO voteAverage;
 
-  @JsonKey(name: 'year', defaultValue: '')
-  final String releaseDate;
+  @JsonKey(name: 'year', defaultValue: 0)
+  final int releaseDate;
 
-  @JsonKey(name: 'description', defaultValue: '')
+  @JsonKey(name: 'description', defaultValue: 'Описание отсутствует')
   final String description;
 
   CardDataDTO({
@@ -51,7 +51,7 @@ class CardDataDTO {
 /// элемент image:
 @JsonSerializable()
 class CardDataImageDTO {
-  @JsonKey(name: 'previewUrl', defaultValue: '')
+  @JsonKey(name: 'previewUrl', defaultValue: 'Картинки нет')
   final String previewUrl;
 
   CardDataImageDTO({

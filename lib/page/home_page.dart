@@ -12,7 +12,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   int _tab = 1;
   static const List<Widget> _page = <Widget>[
-    ListViewBuilder(),
     FilmColumn(),
     GridViewBuilder(),
   ];
