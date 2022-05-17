@@ -1,8 +1,9 @@
 import 'package:dz1/const/film_class.dart';
+import 'package:dz1/models.dart';
 import 'package:flutter/material.dart';
 
 class PageArgument {
-  final FilmPoster data;
+  final FilmModel data;
 
   PageArgument(this.data);
 }

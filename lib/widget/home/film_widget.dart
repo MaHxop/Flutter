@@ -1,13 +1,14 @@
 import 'package:dz1/const/film_class.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
+import 'package:dz1/models.dart';
 
 class FilmWidget extends StatefulWidget {
   final String title;
   final Image picture;
   final double voteAverage;
   final String description;
-  final FilmPoster link;
+  final FilmModel link;
 
   const FilmWidget({
     Key? key,
@@ -21,7 +22,7 @@ class FilmWidget extends StatefulWidget {
         );
 
   factory FilmWidget.model({
-    required FilmPoster model,
+    required FilmModel model,
     Key? key,
   }) {
     return FilmWidget(
@@ -89,7 +90,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                           const SizedBox(height: 5),
                           Text(
                             widget.title,
-                            maxLines: 1,
+                            maxLines: 2,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,

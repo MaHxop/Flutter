@@ -4,19 +4,19 @@ part 'dto_start_page.g.dart';
 
 /// Корневой элемент Json
 @JsonSerializable()
-class DocsCardDTO {
+class CardDTO {
   @JsonKey(name: 'docs')
-  final List<DocsCardDataDTO>? docs;
+  final List<CardDataDTO>? docs;
 
-  DocsCardDTO({this.docs});
+  CardDTO({this.docs});
 
-  factory DocsCardDTO.fromJson(Map<String, dynamic> json) =>
-      _$DocsCardDTOFromJson(json);
+  factory CardDTO.fromJson(Map<String, dynamic> json) =>
+      _$CardDTOFromJson(json);
 }
 
 /// элемент docs:
 @JsonSerializable()
-class DocsCardDataDTO {
+class CardDataDTO {
   @JsonKey(name: 'id', defaultValue: 0)
   final int id;
 
@@ -24,10 +24,10 @@ class DocsCardDataDTO {
   final String title;
 
   @JsonKey(name: 'poster')
-  final DocsCardDataImageDTO? picture;
+  final CardDataImageDTO? picture;
 
   @JsonKey(name: 'votes')
-  final DocsCardDataVotesDTO? voteAverage;
+  final CardDataVotesDTO? voteAverage;
 
   @JsonKey(name: 'year')
   final String? releaseDate;
@@ -35,42 +35,42 @@ class DocsCardDataDTO {
   @JsonKey(name: 'description')
   final String? description;
 
-  DocsCardDataDTO({
+  CardDataDTO({
     required this.id,
     required this.title,
     required this.picture,
+    this.voteAverage,
     this.releaseDate,
     this.description,
-    this.voteAverage,
   });
 
-  factory DocsCardDataDTO.fromJson(Map<String, dynamic> json) =>
-      _$DocsCardDataDTOFromJson(json);
+  factory CardDataDTO.fromJson(Map<String, dynamic> json) =>
+      _$CardDataDTOFromJson(json);
 }
 
 /// элемент image:
 @JsonSerializable()
-class DocsCardDataImageDTO {
+class CardDataImageDTO {
   @JsonKey(name: 'previewUrl', defaultValue: '')
-  final String? original;
+  final String? previewUrl;
 
-  DocsCardDataImageDTO({
-    this.original,
+  CardDataImageDTO({
+    this.previewUrl,
   });
 
-  factory DocsCardDataImageDTO.fromJson(Map<String, dynamic> json) =>
-      _$DocsCardDataImageDTOFromJson(json);
+  factory CardDataImageDTO.fromJson(Map<String, dynamic> json) =>
+      _$CardDataImageDTOFromJson(json);
 }
 
 @JsonSerializable()
-class DocsCardDataVotesDTO {
+class CardDataVotesDTO {
   @JsonKey(name: 'kp', defaultValue: 0)
   final double? kp;
 
-  DocsCardDataVotesDTO({
+  CardDataVotesDTO({
     this.kp,
   });
 
-  factory DocsCardDataVotesDTO.fromJson(Map<String, dynamic> json) =>
-      _$DocsCardDataVotesDTOFromJson(json);
+  factory CardDataVotesDTO.fromJson(Map<String, dynamic> json) =>
+      _$CardDataVotesDTOFromJson(json);
 }

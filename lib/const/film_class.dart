@@ -18,30 +18,11 @@ abstract class Film {
   });
 }
 
-class FilmPoster extends Film {
-  LanguageEnum lang;
-
-  FilmPoster({
-    required int id,
-    required String title,
-    required Image picture,
-    required double voteAverage,
-    required String releaseDate,
-    required String description,
-    required this.lang,
-  }) : super(
-          id: id,
-          title: title,
-          picture: picture,
-          voteAverage: voteAverage,
-          releaseDate: releaseDate,
-          description: description,
-        );
-}
-
 enum LanguageEnum {
   russian,
   korean,
+  english,
+  chinese,
 }
 
 extension LanguageToFilm on LanguageEnum {
@@ -51,6 +32,10 @@ extension LanguageToFilm on LanguageEnum {
         return 'Русский';
       case LanguageEnum.korean:
         return 'Корейский';
+      case LanguageEnum.english:
+        return 'Английский';
+      case LanguageEnum.chinese:
+        return 'Китайский';
     }
   }
 }
