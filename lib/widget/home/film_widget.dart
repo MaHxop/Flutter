@@ -1,7 +1,7 @@
 import 'package:dz1/const/film_class.dart';
+import 'package:dz1/models/film_models.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
-import 'package:dz1/models.dart';
 
 class FilmWidget extends StatefulWidget {
   final String title;

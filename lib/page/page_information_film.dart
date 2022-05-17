@@ -1,5 +1,5 @@
 import 'package:dz1/const/film_class.dart';
-import 'package:dz1/models.dart';
+import 'package:dz1/models/film_models.dart';
 import 'package:flutter/material.dart';
 
 class PageArgument {

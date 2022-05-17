@@ -1,7 +1,7 @@
 import 'package:dz1/const/film_class.dart';
+import 'package:dz1/models/film_models.dart';
 import 'package:dz1/widget/home/film_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:dz1/models.dart';
 
 class FilmColumn extends StatefulWidget {
   const FilmColumn({Key? key}) : super(key: key);
