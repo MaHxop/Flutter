@@ -12,16 +12,28 @@ class FilmRepositories {
       requestBody: true,
     ));
 
-  static Future<FilmModel?> loadData() async {
+  static Future<HomeModel?> loadData() async {
     try {
       const String url = Query.baseUrl;
       final Response<dynamic> response = await _dio.get<Map<dynamic, dynamic>>(
         url,
         queryParameters: Query.baseQuery,
       );
-      final CardDataDTO dto =
-          CardDataDTO.fromJson(response.data as Map<String, dynamic>);
-      final FilmModel model = dto.toDomain();
+
+      // Парсим ДТО
+      final dtos = <CardDataDTO>[];
+      final responseList = response.data as List<dynamic>;
+      for (final data in responseList) {
+        dtos.add(CardDataDTO.fromJson(data as Map<String, dynamic>));
+      }
+
+      // Конвертируем ДТО в модели
+      final filmModels = <FilmModel>[];
+      for (final dto in dtos) {
+        filmModels.add(dto.toDomain());
+      }
+
+      final HomeModel model = HomeModel(docs: filmModels);
       return model;
     } on DioError catch (_) {
       return null;
