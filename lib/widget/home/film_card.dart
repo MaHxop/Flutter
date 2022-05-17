@@ -1,7 +1,6 @@
 import 'package:dz1/models/models.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_html/flutter_html.dart';
 
 class FilmCard extends StatelessWidget {
   final FilmModel filmModel;

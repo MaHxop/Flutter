@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Главная страница'),
+        title: const Text('Главная страница'),
       ),
       body: Center(
         child: _page[_tab],
