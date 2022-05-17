@@ -1,45 +1,20 @@
-import 'package:dz1/const/film_class.dart';
 import 'package:dz1/models/models.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_html/flutter_html.dart';
 
-class FilmWidget extends StatefulWidget {
-  final String title;
-  final String picture;
-  final double voteAverage;
-  final String description;
-  final FilmModel link;
+class FilmCard extends StatelessWidget {
+  final FilmModel filmModel;
 
-  const FilmWidget({
-    Key? key,
-    required this.title,
-    required this.picture,
-    required this.voteAverage,
-    required this.description,
-    required this.link,
-  }) : super(
-          key: key,
-        );
-
-  factory FilmWidget.model({
+  factory FilmCard.model({
     required FilmModel model,
     Key? key,
   }) {
-    return FilmWidget(
-      title: model.title,
-      picture: model.picture,
-      voteAverage: model.voteAverage,
-      description: model.description,
-      link: model,
+    return FilmCard(
+      filmModel: model,
     );
   }
-
-  @override
-  State<FilmWidget> createState() => _FilmWidgetState();
-}
-
-class _FilmWidgetState extends State<FilmWidget> {
-  bool heart = false;
+  const FilmCard({Key? key, required this.filmModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +30,7 @@ class _FilmWidgetState extends State<FilmWidget> {
               Navigator.pushNamed(
                 context,
                 '/HomePage/PageFilmInformation',
-                arguments: PageArgument(widget.link),
+                arguments: PageArgument(filmModel),
               );
             },
             child: Container(
@@ -77,7 +52,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child: Image.network(widget.picture),
+                    child: Image.network(filmModel.picture),
                   ),
                   Expanded(
                     flex: 2,
@@ -89,7 +64,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                         children: [
                           const SizedBox(height: 5),
                           Text(
-                            widget.title,
+                            filmModel.title,
                             maxLines: 2,
                             style: const TextStyle(
                               fontSize: 18,
@@ -105,7 +80,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                                 color: Colors.amber,
                               ),
                               Text(
-                                widget.voteAverage.toString(),
+                                filmModel.voteAverage.toString(),
                                 maxLines: 1,
                                 style: const TextStyle(
                                   fontSize: 16,
@@ -116,7 +91,7 @@ class _FilmWidgetState extends State<FilmWidget> {
                           ),
                           const SizedBox(height: 10),
                           Text(
-                            widget.description,
+                            filmModel.description,
                             maxLines: 3,
                             overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
@@ -124,26 +99,17 @@ class _FilmWidgetState extends State<FilmWidget> {
                               color: Colors.white38,
                             ),
                           ),
+                          // Padding(
+                          //   padding:
+                          //       const EdgeInsets.only(left: 10, bottom: 10),
+                          //   child: Html(data: filmModel.description ?? ''),
+                          // ),
                         ],
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ),
-        ),
-        Positioned(
-          top: 10,
-          right: 10,
-          child: GestureDetector(
-            onTap: () {
-              heart = !heart;
-              setState(() {});
-            },
-            child: Icon(
-              !heart ? Icons.heart_broken : Icons.favorite,
-              color: !heart ? Colors.grey : Colors.red,
             ),
           ),
         ),

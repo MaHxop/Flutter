@@ -1,4 +1,3 @@
-import 'package:dz1/const/film_class.dart';
 import 'package:dz1/models/models.dart';
 import 'package:flutter/material.dart';
 
@@ -63,14 +62,6 @@ class _PageFilmInformationState extends State<PageFilmInformation> {
                       ),
                     ),
                     const SizedBox(height: 10),
-                    Text(
-                      widget.arg.data.lang.toPrettyString(),
-                      maxLines: 1,
-                      style: const TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                      ),
-                    ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [

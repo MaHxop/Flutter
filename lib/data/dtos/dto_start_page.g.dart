@@ -19,12 +19,10 @@ Map<String, dynamic> _$CardDTOToJson(CardDTO instance) => <String, dynamic>{
 CardDataDTO _$CardDataDTOFromJson(Map<String, dynamic> json) => CardDataDTO(
       id: json['id'] as int? ?? 0,
       title: json['name'] as String? ?? '',
-      picture: json['poster'] == null
-          ? null
-          : CardDataImageDTO.fromJson(json['poster'] as Map<String, dynamic>),
-      voteAverage: json['votes'] == null
-          ? null
-          : CardDataVotesDTO.fromJson(json['votes'] as Map<String, dynamic>),
+      picture:
+          CardDataImageDTO.fromJson(json['poster'] as Map<String, dynamic>),
+      voteAverage:
+          CardDataVotesDTO.fromJson(json['votes'] as Map<String, dynamic>),
       releaseDate: json['year'] as String? ?? '',
       description: json['description'] as String? ?? '',
     );

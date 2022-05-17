@@ -1,5 +1,5 @@
 import 'package:dz1/widget/home/view_builder.dart';
-import 'package:dz1/widget/home/list_widget_film.dart';
+import 'package:dz1/widget/home/film_column.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {

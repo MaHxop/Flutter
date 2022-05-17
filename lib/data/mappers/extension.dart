@@ -4,7 +4,7 @@ import 'package:dz1/models/models.dart';
 extension HomeDTOToDomain on CardDTO {
   HomeModel toDomain() {
     return HomeModel(
-      results: docs?.map((CardDataDTO e) => e.toDomain()).toList(),
+      docs: docs?.map((CardDataDTO e) => e.toDomain()).toList(),
     );
   }
 }
@@ -15,10 +15,9 @@ extension CardDataDTOToDomain on CardDataDTO {
       id: id,
       title: title,
       picture: picture.previewUrl,
-      voteAverage: voteAverage,
+      voteAverage: voteAverage as double,
       releaseDate: releaseDate,
       description: description,
-      lang:
     );
   }
 }

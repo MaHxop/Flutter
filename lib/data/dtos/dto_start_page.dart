@@ -8,7 +8,7 @@ class CardDTO {
   @JsonKey(name: 'docs')
   final List<CardDataDTO>? docs;
 
-  CardDTO({this.docs});
+  CardDTO({required this.docs});
 
   factory CardDTO.fromJson(Map<String, dynamic> json) =>
       _$CardDTOFromJson(json);
@@ -24,10 +24,10 @@ class CardDataDTO {
   final String title;
 
   @JsonKey(name: 'poster')
-  final CardDataImageDTO? picture;
+  final CardDataImageDTO picture;
 
   @JsonKey(name: 'votes')
-  final CardDataVotesDTO? voteAverage;
+  final CardDataVotesDTO voteAverage;
 
   @JsonKey(name: 'year', defaultValue: '')
   final String releaseDate;
@@ -52,10 +52,10 @@ class CardDataDTO {
 @JsonSerializable()
 class CardDataImageDTO {
   @JsonKey(name: 'previewUrl', defaultValue: '')
-  final String? previewUrl;
+  final String previewUrl;
 
   CardDataImageDTO({
-    this.previewUrl,
+    required this.previewUrl,
   });
 
   factory CardDataImageDTO.fromJson(Map<String, dynamic> json) =>

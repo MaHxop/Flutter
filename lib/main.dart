@@ -1,5 +1,6 @@
 import 'package:dz1/page/home_page.dart';
 import 'package:dz1/page/page_information_film.dart';
+import 'package:dz1/page/page_kinopoisk.dart';
 import 'package:dz1/widget/home/view_builder.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
             unselectedItemColor: Colors.purple,
           )),
       routes: {
+        // '/': (context) => const HomeScreen(),
         '/HomePage': (context) => const HomePage(),
         '/HomePage/ViewBuilder': (context) => const ListViewBuilder(),
         '/HomePage/PageFilmInformation': (context) => PageFilmInformation(
