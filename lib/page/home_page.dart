@@ -1,5 +1,5 @@
+import 'package:dz1/page/page_kinopoisk.dart';
 import 'package:dz1/widget/home/view_builder.dart';
-import 'package:dz1/widget/home/film_column.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
@@ -10,9 +10,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _tab = 1;
+  int _tab = 0;
   static const List<Widget> _page = <Widget>[
-    // FilmColumn(),
+    HomeScreen(),
     GridViewBuilder(),
   ];
 
@@ -38,8 +38,6 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
               icon: Icon(Icons.add_to_queue), label: 'ListView'),
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.add_to_queue), label: 'GridView'),
         ],
         onTap: _onTab,
       ),

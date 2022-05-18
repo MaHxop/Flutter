@@ -19,14 +19,14 @@ class MyApp extends StatelessWidget {
             backgroundColor: Color.fromARGB(50, 180, 10, 250),
           ),
           bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-            backgroundColor: Color.fromARGB(50, 180, 10, 250),
+            backgroundColor: Color.fromARGB(50, 180, 10, 200),
             selectedItemColor: Colors.indigoAccent,
             unselectedItemColor: Colors.purple,
           )),
       routes: {
-        '/': (context) => const HomeScreen(),
-        '/HomePage': (context) => const HomePage(),
-        '/HomePage/PageFilmInformation': (context) => PageFilmInformation(
+        '/': (context) => const HomePage(),
+        '/HomeScreen': (context) => const HomeScreen(),
+        '/HomeScreen/PageFilmInformation': (context) => PageFilmInformation(
               arg: ModalRoute.of(context)?.settings.arguments as PageArgument,
             ),
       },

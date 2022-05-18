@@ -37,7 +37,7 @@ class _FilmCardState extends State<FilmCard> {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  '/HomePage/PageFilmInformation',
+                  '/HomeScreen/PageFilmInformation',
                   arguments: PageArgument(widget.filmModel),
                 );
               },
@@ -65,12 +65,11 @@ class _FilmCardState extends State<FilmCard> {
                     Expanded(
                       flex: 2,
                       child: Padding(
-                        padding: const EdgeInsets.all(4.0),
+                        padding: const EdgeInsets.only(left: 4.0),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            const SizedBox(height: 5),
                             Text(
                               widget.filmModel.title,
                               maxLines: 2,
@@ -107,6 +106,7 @@ class _FilmCardState extends State<FilmCard> {
                                 color: Colors.white38,
                               ),
                             ),
+                            const SizedBox(height: 40),
                           ],
                         ),
                       ),
@@ -118,7 +118,7 @@ class _FilmCardState extends State<FilmCard> {
           ),
         ),
         Positioned(
-          top: 13,
+          bottom: 13,
           right: 13,
           child: GestureDetector(
             onTap: () {

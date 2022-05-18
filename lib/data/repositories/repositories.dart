@@ -15,7 +15,7 @@ class FilmRepositories {
 
   static Future<HomeModel?> loadData(
     BuildContext context, {
-    required String q,
+    required String title,
   }) async {
     try {
       const String url = Query.baseUrl;
@@ -23,7 +23,7 @@ class FilmRepositories {
         url,
         queryParameters: <String, dynamic>{
           'token': Query.token,
-          'search': q,
+          'search': title,
           'limit': '20',
           'field': 'name',
         },
