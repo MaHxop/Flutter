@@ -4,7 +4,18 @@ import 'package:dz1/widget/home/view_builder.dart';
 import 'package:flutter/material.dart';
 
 class FilmColumn extends StatefulWidget {
-  const FilmColumn({Key? key}) : super(key: key);
+  final FilmModel filmModel;
+
+  factory FilmColumn.model({
+    required FilmModel model,
+    Key? key,
+  }) {
+    return FilmColumn(
+      filmModel: model,
+    );
+  }
+
+  const FilmColumn({Key? key, required this.filmModel}) : super(key: key);
 
   @override
   State<FilmColumn> createState() => FilmColumnState();
@@ -13,6 +24,7 @@ class FilmColumn extends StatefulWidget {
 class FilmColumnState extends State<FilmColumn> {
   List<FilmModel> filmList = FilmList.filmList;
   List<FilmModel> filterFilm = [];
+
   @override
   void initState() {
     super.initState();
