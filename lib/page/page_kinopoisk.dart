@@ -71,6 +71,10 @@ class _HomeScreenState extends State<HomeScreen> {
         return Future.delayed(
           const Duration(seconds: 1),
           () {
+            dataLoadingState = FilmRepositories.loadData(
+              context,
+              title: Query.baseQuery,
+            );
             setState(() {});
           },
         );
