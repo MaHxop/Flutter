@@ -31,6 +31,7 @@ dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
   pull_to_refresh: ^2.0.0
+  shared_preferences: ^2.0.13
 
     #core
   equatable: 2.0.3
@@ -47,6 +48,12 @@ dependencies:
   #generators
   json_annotation: 4.4.0
 
+  # DB
+  drift: ^1.5.0
+  sqlite3_flutter_libs: ^0.5.0
+  path_provider: ^2.0.0
+  path: ^1.8.0
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -57,6 +64,10 @@ dev_dependencies:
     sdk: flutter
   build_runner: 2.1.7
   json_serializable: 6.1.3
+
+  drift_dev: ^1.5.2
+  dart_style: 2.2.1
+
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

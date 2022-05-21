@@ -1,4 +1,4 @@
-import 'package:dz1/const/const.dart';
+import 'package:dz1/const/constants.dart';
 import 'package:dz1/page/page_kinopoisk.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +42,7 @@ class ErrorDialog extends StatelessWidget {
               const Icon(Icons.error, color: Colors.white),
               const SizedBox(height: 12),
               Text(
-                '${MovieLocal.error} ${error ?? MovieLocal.unknown}',
+                '${FilmLocal.error} ${error ?? FilmLocal.unknown}',
                 style: Theme.of(context)
                     .textTheme
                     .bodyText1

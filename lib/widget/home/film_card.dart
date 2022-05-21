@@ -1,3 +1,4 @@
+import 'package:dz1/const/widget/primary_button.dart';
 import 'package:dz1/models/models.dart';
 import 'package:dz1/page/page_information_film.dart';
 import 'package:flutter/material.dart';
@@ -5,23 +6,31 @@ import 'package:flutter/material.dart';
 class FilmCard extends StatefulWidget {
   final FilmModel filmModel;
 
-  factory FilmCard.model({
-    required FilmModel model,
-    Key? key,
-  }) {
-    return FilmCard(
-      filmModel: model,
-    );
-  }
+  //
+  // factory FilmCard.model({
+  //   required FilmModel model,
+  //   Key? key,
+  // }) {
+  //   return FilmCard(
+  //     filmModel: model,
+  //   );
+  // }
 
-  const FilmCard({Key? key, required this.filmModel}) : super(key: key);
+  const FilmCard({
+    Key? key,
+    required this.filmModel,
+  }) : super(key: key);
 
   @override
-  State<FilmCard> createState() => _FilmCardState();
+  State<FilmCard> createState() => _FilmCardState(() {}, '');
 }
 
 class _FilmCardState extends State<FilmCard> {
   bool heart = false;
+  final VoidCallback? onClickFavoriteButton;
+  final String textButton;
+
+  _FilmCardState(this.onClickFavoriteButton, this.textButton);
 
   @override
   Widget build(BuildContext context) {
@@ -107,6 +116,18 @@ class _FilmCardState extends State<FilmCard> {
                               ),
                             ),
                             const SizedBox(height: 40),
+                            Padding(
+                              padding: const EdgeInsets.all(8),
+                              child:
+                                  // Html(data: movieCardModel?.description ?? ''),
+                                  PrimaryButton(
+                                textButton,
+                                onPressed: () {
+                                  //Вызываем функци обратного вызова
+                                  onClickFavoriteButton?.call();
+                                },
+                              ),
+                            )
                           ],
                         ),
                       ),
