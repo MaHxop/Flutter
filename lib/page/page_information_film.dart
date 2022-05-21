@@ -24,7 +24,7 @@ class _PageFilmInformationState extends State<PageFilmInformation> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Описание'),
+        title: const Center(child: Text('Описание')),
       ),
       body: Container(
         decoration: BoxDecoration(
