@@ -1,5 +1,6 @@
 import 'package:dz1/const/widget/not_found_page.dart';
 import 'package:dz1/page/main_page.dart';
+import 'package:dz1/page/page_information_film.dart';
 import 'package:dz1/page/setting_page.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,6 @@ class MyApp extends StatelessWidget {
           backgroundColor: Color.fromARGB(50, 180, 10, 250),
         ),
       ),
-      title: 'Flutter courses',
       initialRoute: MainPage.path,
       onGenerateRoute: (RouteSettings settings) {
         if (settings.name == MainPage.path) {
@@ -37,6 +37,16 @@ class MyApp extends StatelessWidget {
           );
         }
 
+        if (settings.name == PageFilmInformation.path) {
+          return MaterialPageRoute(
+            builder: (context) {
+              return PageFilmInformation(
+                arg: ModalRoute.of(context)?.settings.arguments as PageArgument,
+              );
+            },
+          );
+        }
+
         return MaterialPageRoute(
           // Более короткая версия функции
           // (_, __, ___ и так далее) обозначают неиспользуемые параметры
@@ -46,44 +56,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// @override
-// Widget build(BuildContext context) {
-//   return MaterialApp(
-//     theme: ThemeData(
-//         appBarTheme: const AppBarTheme(
-//           backgroundColor: Color.fromARGB(50, 180, 10, 250),
-//         ),
-//         bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-//           backgroundColor: Color.fromARGB(50, 180, 10, 200),
-//           selectedItemColor: Colors.indigoAccent,
-//           unselectedItemColor: Colors.purple,
-//         )),
-//     routes: {
-//       '/': (context) => BlocProvider<ErrorBloc>(
-//         lazy: false,
-//         create: (_) => ErrorBloc(),
-//         child: RepositoryProvider<FilmRepositories>(
-//           lazy: true,
-//           create: (BuildContext context) => FilmRepositories(
-//             onErrorHandler: (String code, String message) {
-//               context
-//                   .read<ErrorBloc>()
-//                   .add(ShowDialogEvent(title: code, message: message));
-//             },
-//           ),
-//           child: BlocProvider<HomeBloc>(
-//               lazy: false,
-//               create: (BuildContext context) =>
-//                   HomeBloc(context.read<FilmRepositories>()),
-//               child: const HomeScreen()),
-//         ),
-//       ),
-//       '/HomeScreen/PageFilmInformation': (context) => PageFilmInformation(
-//         arg: ModalRoute.of(context)?.settings.arguments as PageArgument,
-//       ),
-//     },
-//     initialRoute: '/',
-//   );
-// }
-// }

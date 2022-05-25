@@ -6,16 +6,6 @@ import 'package:flutter/material.dart';
 class FilmCard extends StatefulWidget {
   final FilmModel filmModel;
 
-  //
-  // factory FilmCard.model({
-  //   required FilmModel model,
-  //   Key? key,
-  // }) {
-  //   return FilmCard(
-  //     filmModel: model,
-  //   );
-  // }
-
   const FilmCard({
     Key? key,
     required this.filmModel,
@@ -116,18 +106,6 @@ class _FilmCardState extends State<FilmCard> {
                               ),
                             ),
                             const SizedBox(height: 40),
-                            Padding(
-                              padding: const EdgeInsets.all(8),
-                              child:
-                                  // Html(data: movieCardModel?.description ?? ''),
-                                  PrimaryButton(
-                                textButton,
-                                onPressed: () {
-                                  //Вызываем функци обратного вызова
-                                  onClickFavoriteButton?.call();
-                                },
-                              ),
-                            )
                           ],
                         ),
                       ),
@@ -139,19 +117,20 @@ class _FilmCardState extends State<FilmCard> {
           ),
         ),
         Positioned(
-          bottom: 13,
-          right: 13,
-          child: GestureDetector(
-            onTap: () {
+          bottom: 20,
+          right: 20,
+          child: IconButton(
+            onPressed: () {
+              onClickFavoriteButton?.call();
               heart = !heart;
               setState(() {});
             },
-            child: Icon(
+            icon: Icon(
               !heart ? Icons.heart_broken : Icons.favorite,
               color: !heart ? Colors.grey : Colors.red,
             ),
           ),
-        ),
+        )
       ],
     );
   }

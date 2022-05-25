@@ -1,5 +1,5 @@
 import 'package:dz1/const/constants.dart';
-import 'package:dz1/page/page_kinopoisk.dart';
+import 'package:dz1/page/home_screen.dart';
 import 'package:flutter/material.dart';
 
 void showErrorDialog({BuildContext? context, required String error}) {

@@ -9,6 +9,7 @@ class PageArgument {
 
 class PageFilmInformation extends StatefulWidget {
   final PageArgument arg;
+  static const path = '/PageFilmInformation';
 
   const PageFilmInformation({
     Key? key,

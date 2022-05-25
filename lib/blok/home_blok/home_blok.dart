@@ -40,20 +40,20 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   void _onClickFavourites(
       ChangedFavourites event, Emitter<HomeState> emit) async {
-    final FilmModel? targetMovie = event.model;
+    final FilmModel? targetFilm = event.model;
 
-    FilmModel? movie;
+    FilmModel? film;
     // Проверяем что список избранных не пуст
     if (state.favouritesFilm?.isNotEmpty == true) {
       // проверяем есть ли в избранном фильм
-      movie = state.favouritesFilm
-          ?.firstWhere((element) => element.id == targetMovie?.id);
+      film = state.favouritesFilm
+          ?.firstWhere((element) => element.id == targetFilm?.id);
     }
     // если есть удаляем из базы, если нет то добавляем в базу
-    if (movie != null) {
-      await repository.deleteFilmDB(movie.id);
-    } else if (targetMovie != null) {
-      await repository.insertFilmDB(targetMovie);
+    if (film != null) {
+      await repository.deleteFilmDB(film.id);
+    } else if (targetFilm != null) {
+      await repository.insertFilmDB(targetFilm);
     }
   }
 
