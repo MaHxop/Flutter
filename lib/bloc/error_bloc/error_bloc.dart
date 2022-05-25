@@ -1,5 +1,5 @@
-import 'package:dz1/blok/error_blok/error_event.dart';
-import 'package:dz1/blok/error_blok/error_state.dart';
+import 'package:dz1/bloc/error_bloc/error_event.dart';
+import 'package:dz1/bloc/error_bloc/error_state.dart';
 import 'package:dz1/const/error_dialog.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

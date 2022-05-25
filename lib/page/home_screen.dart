@@ -1,6 +1,6 @@
-import 'package:dz1/blok/home_blok/home_blok.dart';
-import 'package:dz1/blok/home_blok/home_event.dart';
-import 'package:dz1/blok/home_blok/home_state.dart';
+import 'package:dz1/bloc/home_bloc/home_bloc.dart';
+import 'package:dz1/bloc/home_bloc/home_event.dart';
+import 'package:dz1/bloc/home_bloc/home_state.dart';
 import 'package:dz1/const/constants.dart';
 import 'package:dz1/const/timer.dart';
 import 'package:dz1/models/models.dart';

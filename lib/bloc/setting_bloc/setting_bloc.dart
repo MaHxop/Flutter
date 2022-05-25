@@ -1,5 +1,5 @@
-import 'package:dz1/blok/setting_blok/setting_event.dart';
-import 'package:dz1/blok/setting_blok/setting_state.dart';
+import 'package:dz1/bloc/setting_bloc/setting_event.dart';
+import 'package:dz1/bloc/setting_bloc/setting_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 

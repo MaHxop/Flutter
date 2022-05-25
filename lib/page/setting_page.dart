@@ -1,6 +1,6 @@
-import 'package:dz1/blok/setting_blok/setting_blok.dart';
-import 'package:dz1/blok/setting_blok/setting_event.dart';
-import 'package:dz1/blok/setting_blok/setting_state.dart';
+import 'package:dz1/bloc/setting_bloc/setting_bloc.dart';
+import 'package:dz1/bloc/setting_bloc/setting_event.dart';
+import 'package:dz1/bloc/setting_bloc/setting_state.dart';
 import 'package:dz1/const/widget/primary_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

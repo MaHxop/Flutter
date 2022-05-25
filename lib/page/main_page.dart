@@ -1,6 +1,6 @@
-import 'package:dz1/blok/error_blok/error_blok.dart';
-import 'package:dz1/blok/error_blok/error_event.dart';
-import 'package:dz1/blok/home_blok/home_blok.dart';
+import 'package:dz1/bloc/error_bloc/error_bloc.dart';
+import 'package:dz1/bloc/error_bloc/error_event.dart';
+import 'package:dz1/bloc/home_bloc/home_bloc.dart';
 import 'package:dz1/data/repositories/repositories.dart';
 import 'package:dz1/page/home_screen.dart';
 import 'package:flutter/material.dart';
