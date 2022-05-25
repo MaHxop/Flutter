@@ -1,6 +1,6 @@
-import 'package:dz1/blok/home_blok/home_blok.dart';
-import 'package:dz1/blok/home_blok/home_event.dart';
-import 'package:dz1/blok/home_blok/home_state.dart';
+import 'package:dz1/bloc/home_bloc/home_bloc.dart';
+import 'package:dz1/bloc/home_bloc/home_event.dart';
+import 'package:dz1/bloc/home_bloc/home_state.dart';
 import 'package:dz1/const/const.dart';
 import 'package:dz1/const/timer.dart';
 import 'package:dz1/data/repositories/repositories.dart';
@@ -91,6 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
           return Future.delayed(
             const Duration(seconds: 1),
             () {
+              context.read<HomeBloc>().add(LoadDataEvent());
               setState(() {});
             },
           );
