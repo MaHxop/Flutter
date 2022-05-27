@@ -1,4 +1,4 @@
-import 'package:dz1/bloc/home_blok/home_bloc.dart';
+import 'package:dz1/bloc/home_bloc/home_bloc.dart';
 import 'package:dz1/data/repositories/repositories.dart';
 import 'package:dz1/error_blok/error_blok.dart';
 import 'package:dz1/error_blok/error_event.dart';
